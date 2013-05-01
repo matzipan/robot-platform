@@ -1,6 +1,9 @@
 
 module second_level() {
-	cylinder(h=0.5,r=7.85); // 8cm radius, 0.5 height
+	translate([0,0,-0.5]) difference() {
+		cylinder(h=0.5,r=7.85); // 8cm radius, 0.5 height
+		translate([-2,-6.4,0])	cube([4,2,0.5]);
+	}
 	board_holder();
 }
 
