@@ -27,7 +27,7 @@ module base() {
 	rotate([0,0,315]) translate([7.5,0,0]) second_layer_support();
 
 	translate([6,0,-0.5]) sensor_support();
-	rotate([0,0,180]) translate([6,0,0]) sensor_support();
+	rotate([0,0,180]) translate([6,0,-0.5]) sensor_support();
 
 	translate([0.5, -2.9,0]) battery_box();
 	translate([-3.6, -2.9,0]) battery_box();
