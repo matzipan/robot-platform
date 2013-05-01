@@ -35,13 +35,6 @@ module encoder_contour(n,rin,rout,mod){
     }	
 }
 
-/* use this to create a hole outline */
-module hole2d(rhole,rcross){
-	 circle(r = rhole);
-	 polygon(points=[[0,0.1],[rcross,0],[0,-0.1],[-rcross,0] ] );
-	 polygon(points=[[0.1,0],[0,rcross],[-0.1,0],[0,-rcross] ] );
-}
-
 module encoder3d(n,rin,rin2,rout,rhole,rmount,border,mod,t,tm) {
 	echo();
 	difference(){
@@ -55,11 +48,6 @@ module encoder3d(n,rin,rin2,rout,rhole,rmount,border,mod,t,tm) {
 	}
 }
 
-module encoder2d(rin,rout,rhole,rcross,mod) {
-	hole2d(rhole,rcross);
-	encoder_contour(rin,rout,mod);
-}
-
 
 module wheel() {
 	difference() {
@@ -71,4 +59,3 @@ module wheel() {
 		}
 	}
 }
-//encoder2d(NUM_SECTIONS,R_INNER,R_OUTER,R_HOLE,R_CROSS,INT_MODIFIER);
