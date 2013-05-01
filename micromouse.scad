@@ -69,7 +69,7 @@ module motor_mount() {
 module engine_assembly() {
 	translate([0,2.525, 0]) wheel_support();
 	translate([-0.65,0,0]) motor_mount();
-	translate([0.65,1,-0.5]) side_sensor_support(); 
+	translate([0.65,1,-0.5]) rotary_encoder_sensor_support(); 
 }
 
 module second_layer_support() {
@@ -93,7 +93,7 @@ module sensor_support() {
 }
 
 //support for left/right sensors
-module side_sensor_support() {
+module rotary_encoder_sensor_support() {
 	difference() {
 		cube([3,2,2]);
 		translate([0.1,0.2,0.5]) cube([2.8,1.6,1.5]);
