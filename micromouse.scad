@@ -8,8 +8,6 @@ translate([0,0,4]) second_level();
 translate([0, 9,0]) rotate([0,-90,90])wheel();
 translate([0, -9,0]) rotate([0,-90,-90])wheel();
 
-
-
 //Robot base
 module base() {
 	translate([0,0,-0.5])
@@ -43,7 +41,6 @@ module second_level() {
 
 
 //Ball caster mount point hole. 
-//@TODO: get exact measurements of the mount points
 module ball_caster_mount_point() {
 	translate([0,0,-1]) difference() {
 		cylinder(h=1, r=0.8);
@@ -53,7 +50,6 @@ module ball_caster_mount_point() {
 }
 
 //Wheel support semicircle 
-//@TODO: make room for wheel rotary encoder
 module wheel_support() {
 	rotate([-90,0,0]) difference() {
 		cylinder(h=0.3, r=1.5);
@@ -66,7 +62,6 @@ module wheel_support() {
 }
 
 //Box with a size big enough to fit the motors
-//@TODO: Allow for variations
 module motor_mount() {
 	difference() {
 		cube([1.3,2.525,1]);
@@ -92,7 +87,6 @@ module second_layer_support() {
 }
 
 //support for front/back sensors
-//@TODO get the right dimensions for this
 module sensor_support() {
 	translate([0, -2,0]) 	difference() {
 		cube([2,4,2]);
@@ -102,7 +96,6 @@ module sensor_support() {
 }
 
 //support for left/right sensors
-//@TODO:implement
 module side_sensor_support() {
 	difference() {
 		cube([3,2,2]);
