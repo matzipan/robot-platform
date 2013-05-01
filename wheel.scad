@@ -1,7 +1,7 @@
 NUM_SECTIONS = 14; 	/* number of interrupters*2 */
-R_OUTER = 2.5;			/* outer radius of the encoder */
+R_OUTER = 2.8;			/* outer radius of the encoder */
 R_INNER = 0.6;				/* inner radius -> filled */
-R_INNER2 = 2;			/* inner radius -> inner radius 2, phase shifted interrupters for direction detection */
+R_INNER2 = 2.5;			/* inner radius -> inner radius 2, phase shifted interrupters for direction detection */
 R_HOLE = 0.2;			/* mounting hole radius */
 R_MOUNT = 0.4;				/* mounting hole outline radius */
 R_CROSS = 1;			/* center-cross for 2d encoders*/
@@ -66,8 +66,8 @@ module wheel() {
 		encoder3d(NUM_SECTIONS,R_INNER,R_INNER2,R_OUTER,R_HOLE,R_MOUNT,BORDER,INT_MODIFIER,THICKNESS,THICKNESS_MOUNT);
 		
 		translate([0,0,(THICKNESS-ring_diameter)/2]) difference() {
-			cylinder(h=ring_diameter,r=2.5);
-			cylinder(h=ring_diameter,r=2.5-ring_depth);
+			cylinder(h=ring_diameter,r=2.8);
+			cylinder(h=ring_diameter,r=2.8-ring_depth);
 		}
 	}
 }
