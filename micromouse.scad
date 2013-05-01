@@ -2,6 +2,7 @@
 $fn = 30;
 
 include <wheel.scad>;
+include <top_level.scad>;
 
 base();
 translate([0,0,4]) second_level();
@@ -33,10 +34,6 @@ module base() {
 	
 }
 
-module second_level() {
-	cylinder(h=0.5,r=7.85); // 8cm radius, 0.5 height
-
-}
 
 
 
