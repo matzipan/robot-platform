@@ -14,6 +14,7 @@ INT_MODIFIER = -0.2;  /* interrupter-width modifier
 								<0 =>	interrupter > hole
 								>0 => interrupter < hole
 							*/
+d_shape_offset= 0.1;
 
 ring_depth=0.3;
 ring_diameter=0.4;
@@ -44,7 +45,10 @@ module encoder3d(n,rin,rin2,rout,rhole,rmount,border,mod,t,tm) {
 		}
 		linear_extrude(height=5*t,center=true) encoder_contour(n,rin,rin2,mod);
 		rotate([0,0,360/(4*n)]) linear_extrude(height=5*t,center=true) encoder_contour(n,rin2-$fs,rout-border,mod);
-		cylinder(h=5*tm,r=rhole,center=true);
+		difference() {
+			cylinder(h=5*tm,r=rhole,center=true);
+			translate([-rhole,d_shape_offset,0],center=true) cube([2*rhole, rhole, 5*tm]);
+		}
 	}
 }
 
