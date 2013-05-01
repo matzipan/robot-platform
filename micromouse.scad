@@ -19,18 +19,18 @@ module base() {
 	rotate([0,0,180]) translate([5, 0,-0.5]) ball_caster_mount_point();
 
 	translate([0,4.975,0]) engine_assembly();
-	rotate([0,0,180]) translate([0,4.975,0]) engine_assembly();
-
+	//rotate([0,0,180]) translate([0,4.975,0]) engine_assembly();
+	mirror([0,-1,0]) translate([0,4.975,0]) engine_assembly();
+	
 	rotate([0,0,45]) translate([7.5,0,0]) second_layer_support();
 	rotate([0,0,135]) translate([7.5,0,0]) second_layer_support();
 	rotate([0,0,225]) translate([7.5,0,0]) second_layer_support();
 	rotate([0,0,315]) translate([7.5,0,0]) second_layer_support();
 
-	translate([6,0,0]) sensor_support();
+	translate([6,0,-0.5]) sensor_support();
 	rotate([0,0,180]) translate([6,0,0]) sensor_support();
 
 	translate([0.5, -2.9,0]) battery_box();
-
 	translate([-3.6, -2.9,0]) battery_box();
 	
 }
@@ -58,7 +58,9 @@ module wheel_support() {
 	rotate([-90,0,0]) difference() {
 		cylinder(h=0.3, r=1.5);
 		translate([-1.5,0,0]) cube(3, 1, 0.3);
-		translate([0,-0.5,0]) cylinder(h=0.3, r=0.2); // translate 0.2 (to bring to edge) and 0.3 (motor axis offset) 
+		translate([0,-0.5,0]) cylinder(h=0.3, r=0.2); // translate 0.2 (to bring to edge) and 0.3 (motor axis offset)
+
+		translate([0.65,-2,0]) cube(2,1,1); 
 	}
 
 }
@@ -75,6 +77,7 @@ module motor_mount() {
 module engine_assembly() {
 	translate([0,2.525, 0]) wheel_support();
 	translate([-0.65,0,0]) motor_mount();
+	translate([0.65,1,-0.5]) side_sensor_support(); 
 }
 
 module second_layer_support() {
@@ -93,17 +96,19 @@ module second_layer_support() {
 module sensor_support() {
 	translate([0, -2,0]) 	difference() {
 		cube([2,4,2]);
-		translate([0.4,0.2,0.4]) cube([1.4,3.6,1.7]);
-		translate([1.6,0.2,0.7]) cube([0.4,3.6,1.6]);
-		translate([0,1,1.5]) rotate([0,90,0]) cylinder(r=0.2, h=0.4); //place for sensor screws? 
-		translate([0,3,1.5]) rotate([0,90,0]) cylinder(r=0.2, h=0.4); //place for sensor screws?
+		translate([0.4,0.2,0.5]) cube([1.4,3.6,1.7]);
+		translate([1.6,0.2,1]) cube([0.4,3.6,1]);
 	}
 }
 
 //support for left/right sensors
 //@TODO:implement
 module side_sensor_support() {
-
+	difference() {
+		cube([3,2,2]);
+		translate([0.1,0.2,0.5]) cube([2.8,1.6,1.5]);
+		translate([0.1,0.2,1]) cube([2.8,1.9,1]);
+	}
 }
 
 
