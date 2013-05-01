@@ -5,6 +5,8 @@ include <wheel.scad>;
 
 base();
 translate([0,0,4]) second_level();
+translate([0, 9,0]) rotate([0,-90,90])wheel();
+translate([0, -9,0]) rotate([0,-90,-90])wheel();
 
 
 
@@ -39,7 +41,6 @@ module second_level() {
 
 }
 
-translate([-10, 0,0]) rotate([0,-90,0])wheel();
 
 
 //Ball caster mount point hole. 
