@@ -12,12 +12,11 @@ translate([0, -9,0]) rotate([0,-90,-90])wheel();
 
 //Robot base
 module base() {
-	translate([0,0,-0.5]) difference() {
+	translate([0,0,-0.5])
 		cylinder(h=0.5,r=8); // 8cm radius, 0.5 height
 
-		translate([5, 0,0])  ball_caster_mount_point();
-		rotate([0,0,180]) translate([5, 0,0]) ball_caster_mount_point();
-	}
+	translate([5, 0,-0.5])  ball_caster_mount_point();
+	rotate([0,0,180]) translate([5, 0,-0.5]) ball_caster_mount_point();
 
 	translate([0,4.975,0]) engine_assembly();
 	rotate([0,0,180]) translate([0,4.975,0]) engine_assembly();
@@ -45,9 +44,12 @@ module second_level() {
 
 //Ball caster mount point hole. 
 //@TODO: get exact measurements of the mount points
-//@TODO: add hexagonal space for nuts?
 module ball_caster_mount_point() {
-	cylinder(h=0.5, r=0.2);
+	translate([0,0,-1]) difference() {
+		cylinder(h=1, r=0.8);
+
+		cylinder(h=1, r=0.7);
+	}
 }
 
 //Wheel support semicircle 
